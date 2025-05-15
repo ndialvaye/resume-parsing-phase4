@@ -1,3 +1,10 @@
-# Phase 4 - Relationship Extraction
 
-This Streamlit app extracts semantic relationships between named entities found in resumes using SpaCy and dependency parsing.
+# Phase 4 - Extraction des relations entre entités
+
+Cette application Streamlit permet d'extraire des relations sémantiques entre les entités nommées détectées dans les CV.
+
+## Fonctionnalités
+
+- Upload de texte de CV
+- Détection des entités
+- Analyse des relations grammaticales via SpaCy

@@ -1,15 +1,19 @@
+
 import spacy
 
-# Charger le modèle SpaCy (préinstallé compatible Python 3.12)
-nlp = spacy.load("en_core_web_sm")
+# Charger le modèle installé depuis le requirements.txt
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 
 def extract_entity_relations(text):
     doc = nlp(text)
     relations = []
     for sent in doc.sents:
-        ents = list(sent.ents)
-        for i, ent1 in enumerate(ents):
-            for j, ent2 in enumerate(ents):
-                if i < j:
-                    relations.append((ent1.text, "related_to", ent2.text))
+        entities = [ent for ent in sent.ents]
+        for i in range(len(entities)-1):
+            relations.append({
+                "entity1": entities[i].text,
+                "relation": sent.root.text,
+                "entity2": entities[i+1].text
+            })
     return relations
