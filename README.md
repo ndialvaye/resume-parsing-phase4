@@ -1,16 +1,14 @@
+# Phase 4 - Relationship Extraction
 
-# Phase 4 : Extraction de relations entre entités
+This app uses SpaCy to extract subject-verb-object relationships from resume texts.
 
-Cette application extrait les relations entre entités dans un texte donné en utilisant spaCy.
+## Run locally
 
-## Fonctionnalités
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-- Téléversement de fichiers texte
-- Extraction des relations sujet-verbe-objet
-- Affichage des relations extraites
+## Deploy on Streamlit Cloud
 
-## Installation
-
-1. Cloner le dépôt
-2. Installer les dépendances : `pip install -r requirements.txt`
-3. Lancer l'application : `streamlit run app.py`
+Include `requirements.txt` and `runtime.txt` at root.

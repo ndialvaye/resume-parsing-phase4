@@ -1,22 +1,20 @@
-
 import spacy
+import subprocess
 
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
 
 def extract_entity_relations(text):
     doc = nlp(text)
     relations = []
     for sent in doc.sents:
-        subj = ""
-        obj = ""
-        rel = ""
         for token in sent:
-            if "subj" in token.dep_:
-                subj = token.text
-            if "obj" in token.dep_:
-                obj = token.text
             if token.dep_ == "ROOT":
-                rel = token.lemma_
-        if subj and obj and rel:
-            relations.append((subj, rel, obj))
+                subject = [w.text for w in token.lefts if w.dep_ in ("nsubj", "nsubjpass")]
+                obj = [w.text for w in token.rights if w.dep_ in ("dobj", "pobj")]
+                if subject and obj:
+                    relations.append((subject[0], token.text, obj[0]))
     return relations
