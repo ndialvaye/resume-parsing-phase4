@@ -1,14 +1,16 @@
-# Phase 4 - Relationship Extraction
+# Phase 4 - Résumé Parsing
 
-This app uses SpaCy to extract subject-verb-object relationships from resume texts.
+Cette application Streamlit permet d'extraire les relations entre les entités nommées à partir du texte extrait des CVs.
 
-## Run locally
+## Instructions
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
+1. Téléversez un fichier `.txt` contenant du texte préalablement nettoyé (issus des phases précédentes).
+2. Les relations sujet-verbe-objet sont extraites automatiquement.
 
-## Deploy on Streamlit Cloud
+## Modèle SpaCy utilisé
 
-Include `requirements.txt` and `runtime.txt` at root.
+- en_core_web_sm v3.5.0
+
+## Dépendances
+
+Voir `requirements.txt`.
