@@ -1,10 +1,14 @@
+# Phase 4 - Resume Parsing: Relationship Extraction
 
-# Phase 4 - Extraction des relations entre entités
+Cette application Streamlit permet d'extraire des relations entre entités à partir de fichiers CV (.pdf et .docx) en utilisant SpaCy.
 
-Cette application Streamlit permet d'extraire des relations sémantiques entre les entités nommées détectées dans les CV.
+## Fonctionnalités :
+- Extraction d'entités nommées (NER)
+- Association d'entités par dépendances syntaxiques
+- Génération de fichier Excel des relations
 
-## Fonctionnalités
-
-- Upload de texte de CV
-- Détection des entités
-- Analyse des relations grammaticales via SpaCy
+## Lancer localement :
+```
+pip install -r requirements.txt
+streamlit run app.py
+```
